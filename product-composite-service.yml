@@ -1,15 +1,13 @@
-message: Hello world3
-
-
 server:
   port: 0
 
 info:
-  component: Product Service
+  component: Product Composite Service
 
-service:
-  defaultMinMs: 5
-  defaultMaxMs: 20
+security:
+  oauth2:
+    resource:
+      userInfoUri: http://localhost:9090/user
 
 logging:
   level:
@@ -31,21 +29,47 @@ logging:
     com.netflix.hystrix.strategy.properties.HystrixPropertiesChainedArchaiusProperty: WARN
     de.maltorpro: INFO
 
+
+
 spring.rabbitmq:
   host: localhost
   port: 5672
+
+hystrix:
+  threadpool:
+    default:
+      # Maximum number of concurrent requests when using thread pools (Default: 10)
+      coreSize: 100
+      # Maximum LinkedBlockingQueue size - -1 for using SynchronousQueue (Default: -1)
+      maxQueueSize: -1
+      # Queue size rejection threshold (Default: 5)
+      queueSizeRejectionThreshold: 5
+  command:
+    default:
+      circuitBreaker:
+        sleepWindowInMilliseconds: 30000
+        requestVolumeThreshold: 3
+      execution:
+        isolation:
+#          strategy: SEMAPHORE, no thread pool but timeout handling stops to work
+          strategy: THREAD
+          thread:
+            timeoutInMilliseconds: 4000
+
 
 
 ribbon:
   # Interval to refresh the server list from the source
   serverListRefreshInterval: 1000
-  
 #
 #  # Connect timeout used by Apache HttpClient
 #  connectTimeout: 100
 #
 #  # Read timeout used by Apache HttpClient
 #  readTimeout: 10000
+#
+#  ConnectTimeout: 100
+#  ReadTimeout: 3000
 
 eureka:
   instance:
@@ -59,10 +83,23 @@ eureka:
     instanceInfoReplicationIntervalSeconds: 1
     initialInstanceInfoReplicationIntervalSeconds: 1
 
+app:
+  ConnectTimeout: 100
+  ReadTimeout: 3000
+
+#    region: default
+#    availabilityZones:
+#      default: ${APPLICATION_DOMAIN:${DOMAIN:defaultZone}}
+
+#stores:
+#  ribbon:
+#    ServerListRefreshInterval: 1000
+
 ---
 # For deployment in Docker containers
 spring:
   profiles: docker
+
 
 server:
   port: 8080

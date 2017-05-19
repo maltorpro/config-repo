@@ -1,11 +1,8 @@
-message: Hello world3
-
-
 server:
   port: 0
 
 info:
-  component: Product Service
+  component: Recommendation Core Service
 
 service:
   defaultMinMs: 5
@@ -14,7 +11,7 @@ service:
 logging:
   level:
     root: WARN
-
+    
     # Get info on failed OAuth access token validations
     org.springframework.boot.autoconfigure.security.oauth2.resource.UserInfoTokenServices: INFO
 
@@ -35,11 +32,9 @@ spring.rabbitmq:
   host: localhost
   port: 5672
 
-
 ribbon:
   # Interval to refresh the server list from the source
   serverListRefreshInterval: 1000
-  
 #
 #  # Connect timeout used by Apache HttpClient
 #  connectTimeout: 100

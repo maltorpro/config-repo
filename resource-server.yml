@@ -1,24 +1,9 @@
 server:
-  port: 9999
-    
+  port: 9090
   
 info:
-  component: OAuth Auth Server
+  component: Resource Server
 
-management:
-  context-path: /admin
-  
-
-spring:
-  ldap:
-    embedded:
-      ldif: classpath:test-server.ldif
-      base-dn: dc=springframework,dc=org
-      credential:
-        password: 
-      port: 8389
-      validation:
-        enabled: false
 
 
 logging:
