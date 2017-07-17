@@ -53,7 +53,7 @@ zuul:
   ignoredServices: "*"
   prefix: /api
   routes:
-    productcomposite: /product/**
+    product-composite-service: /product/**
 
 logging:
   level:
