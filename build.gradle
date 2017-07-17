@@ -38,6 +38,8 @@ buildscript {
     	compile("org.springframework.cloud:spring-cloud-starter-oauth2")
     	compile("org.springframework.cloud:spring-cloud-starter-security")
 		compile("org.springframework.cloud:spring-cloud-starter-zuul")
+		compile "org.springframework.cloud:spring-cloud-sleuth-zipkin-stream"
+    	compile "org.springframework.cloud:spring-cloud-starter-sleuth"
 	   
 	    testCompile("org.springframework.boot:spring-boot-starter-test")
 	}

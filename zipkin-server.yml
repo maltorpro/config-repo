@@ -1,0 +1,38 @@
+server:
+  port: 9411
+  
+info:
+  component: Zipkin Server 
+
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 1
+    leaseExpirationDurationInSeconds: 1
+    metadataMap:
+      instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${random.value}}}
+  client:
+    # Default values comes from org.springframework.cloud.netflix.eurek.EurekaClientConfigBean
+    registryFetchIntervalSeconds: 1
+    instanceInfoReplicationIntervalSeconds: 1
+    initialInstanceInfoReplicationIntervalSeconds: 1
+
+---
+
+# For deployment in Docker containers
+spring:
+  profiles: docker
+
+
+spring.rabbitmq.host: rabbitmq
+
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    serviceUrl:
+      defaultZone: http://discovery:8761/eureka/
