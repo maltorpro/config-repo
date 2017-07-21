@@ -1,8 +1,8 @@
 buildscript {
 	    ext {
-	        springBootVersion = '1.5.2.RELEASE'
-        	springCloudVersion = 'Dalston.RELEASE'
-        	springVersion = '4.3.8.RELEASE'
+	        springBootVersion = "1.5.2.RELEASE"
+        	springCloudVersion = "Dalston.RELEASE"
+        	springVersion = "4.3.8.RELEASE"
 	    }
 	    repositories {
 	        mavenCentral()
@@ -13,9 +13,9 @@ buildscript {
 }
 
     
-	apply plugin: 'java'
-	apply plugin: 'eclipse'
-	apply plugin: 'idea'
+	apply plugin: "java"
+	apply plugin: "eclipse"
+	apply plugin: "idea"
 	apply plugin: "org.springframework.boot"
 	
 	sourceCompatibility = 1.8
@@ -30,11 +30,11 @@ buildscript {
 	
 	dependencies {
 	
-	    compile('org.springframework.boot:spring-boot-starter-web') 
+	    compile("org.springframework.boot:spring-boot-starter-web") 
     	compile("org.springframework.boot:spring-boot-starter-actuator")
     	compile("org.springframework.cloud:spring-cloud-starter-sleuth")
     	compile("org.springframework.cloud:spring-cloud-starter-config")
-    	compile('org.springframework.cloud:spring-cloud-starter-eureka')
+    	compile("org.springframework.cloud:spring-cloud-starter-eureka")
     	compile("org.springframework.cloud:spring-cloud-starter-oauth2")
     	compile("org.springframework.cloud:spring-cloud-starter-security")
 		compile("org.springframework.cloud:spring-cloud-starter-zuul")
@@ -52,12 +52,12 @@ buildscript {
 	
 	eclipse {
 	    classpath {
-	        containers.remove('org.eclipse.jdt.launching.JRE_CONTAINER')
-	        containers 'org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8'
+	        containers.remove("org.eclipse.jdt.launching.JRE_CONTAINER")
+	        containers "org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"
 	    }
 	}
 
 	task wrapper(type: Wrapper) {
-		gradleVersion = '3.1'
+		gradleVersion = "3.1"
 	}
 

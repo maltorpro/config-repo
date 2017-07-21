@@ -28,9 +28,13 @@ logging:
     com.netflix.hystrix.strategy.properties.HystrixPropertiesChainedArchaiusProperty: WARN
     de.maltorpro: INFO
 
-spring.rabbitmq:
-  host: localhost
-  port: 5672
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+  sleuth:
+    sampler:
+      percentage: 1.0
 
 ribbon:
   # Interval to refresh the server list from the source

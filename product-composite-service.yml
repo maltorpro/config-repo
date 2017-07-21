@@ -31,9 +31,13 @@ logging:
 
 
 
-spring.rabbitmq:
-  host: localhost
-  port: 5672
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+  sleuth:
+    sampler:
+      percentage: 1.0
 
 hystrix:
   threadpool:
