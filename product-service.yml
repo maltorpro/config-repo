@@ -7,6 +7,10 @@ server:
 info:
   component: Product Service
 
+logstash:
+ host: 127.0.0.1:5000
+
+
 service:
   defaultMinMs: 5
   defaultMaxMs: 20
