@@ -4,6 +4,9 @@ server:
 info:
   component: Product Composite Service
 
+logstash:
+ host: 127.0.0.1:5000
+
 security:
   oauth2:
     resource:
@@ -38,6 +41,7 @@ spring:
   sleuth:
     sampler:
       percentage: 1.0
+   
 
 hystrix:
   threadpool:

@@ -4,9 +4,8 @@ server:
 info:
   component: Review Core Service
 
-service:
-  defaultMinMs: 5
-  defaultMaxMs: 20
+logstash:
+ host: 127.0.0.1:5000
 
 logging:
   level:
