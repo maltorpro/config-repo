@@ -89,6 +89,24 @@ eureka:
     serviceUrl:
       defaultZone: http://user:${eureka.password}@${PREFIX:}eureka.cfapps.io/eureka/
 
+
+
+---
+# Eureka instance when used on Docker
+spring:
+  profiles: docker
+  
+spring.rabbitmq.host: rabbitmq  
+  
+eureka:
+  instance:
+    hostname: discovery
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://user:${eureka.password}@discovery-server:8761/eureka/
+
 ---
 # Eureka instance 1 when used on Docker
 spring:
@@ -103,7 +121,7 @@ eureka:
     registerWithEureka: true
     fetchRegistry: true
     serviceUrl:
-      defaultZone: http://user:${eureka.password}@discovery2:8762/eureka/
+      defaultZone: http://user:${eureka.password}@discovery2-server:8762/eureka/
 
 ---
 # Eureka instance 2 when used on Docker
@@ -120,4 +138,4 @@ eureka:
     nonSecurePort: ${server.port}
   client:
     serviceUrl:
-      defaultZone: http://user:${eureka.password}@discovery:8761/eureka/
+      defaultZone: http://user:${eureka.password}@discovery-server:8761/eureka/
