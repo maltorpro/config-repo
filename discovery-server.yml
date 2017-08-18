@@ -42,6 +42,14 @@ logging:
     org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer: INFO
     org.springframework.boot.context.embedded.undertow.UndertowEmbeddedServletContainer: INFO
 
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+  sleuth:
+    sampler:
+      percentage: 0.2
+
 ---
 spring:
   profiles: peer # not standalone
@@ -83,6 +91,9 @@ eureka:
 # Eureka instance 1 when used on Docker
 spring:
   profiles: docker1
+  
+spring.rabbitmq.host: rabbitmq  
+  
 eureka:
   instance:
     hostname: discovery
@@ -96,6 +107,9 @@ eureka:
 # Eureka instance 2 when used on Docker
 spring:
   profiles: docker2
+
+spring.rabbitmq.host: rabbitmq
+
 server:
   port: 8762
 eureka:

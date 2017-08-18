@@ -25,10 +25,19 @@ logging:
 
     de.maltorpro: INFO
 
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+  sleuth:
+    sampler:
+      percentage: 0.2
 
 ---
 # For deployment in Docker containers
 spring:
   profiles: docker
+  
+spring.rabbitmq.host: rabbitmq
 
 

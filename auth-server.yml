@@ -19,7 +19,12 @@ spring:
       port: 8389
       validation:
         enabled: false
-
+  rabbitmq:
+    host: localhost
+    port: 5672
+  sleuth:
+    sampler:
+      percentage: 0.2
 
 logging:
   level:
@@ -45,5 +50,7 @@ logging:
 # For deployment in Docker containers
 spring:
   profiles: docker
+  
+spring.rabbitmq.host: rabbitmq
 
 

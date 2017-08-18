@@ -71,11 +71,20 @@ logging:
     # Set DEBUG level on Hystrix to get an error message when a fallback method is used.
     com.netflix.hystrix: DEBUG
     com.netflix.hystrix.strategy.properties.HystrixPropertiesChainedArchaiusProperty: WARN
+    
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+  sleuth:
+    sampler:
+      percentage: 0.2
 ---
 # For deployment in Docker containers
 spring:
   profiles: docker
 
+spring.rabbitmq.host: rabbitmq
 
 security:
   oauth2:
