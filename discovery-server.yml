@@ -8,6 +8,8 @@ security:
 info:
   component: Discovery Server
 
+logstash:
+ host: 127.0.0.1:5000
 
 eureka:
   # Configure standalone mode, see http://cloud.spring.io/spring-cloud-netflix/spring-cloud-netflix.html#_standalone_mode

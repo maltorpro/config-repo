@@ -5,6 +5,9 @@ server:
 info:
   component: OAuth Auth Server
 
+logstash:
+ host: 127.0.0.1:5000
+
 management:
   context-path: /admin
   

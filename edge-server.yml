@@ -4,6 +4,9 @@ server:
 info:
   component: Edge Server
 
+logstash:
+ host: 127.0.0.1:5000
+
 security:
   oauth2:
     resource:
