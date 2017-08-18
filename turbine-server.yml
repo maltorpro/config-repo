@@ -41,14 +41,6 @@ eureka:
     serviceUrl:
       defaultZone: ${vcap.services.${PREFIX:}eureka.credentials.uri:http://user:password@localhost:8761}/eureka/
 
-#turbine:
-#  appConfig: customers,stores,productapi
-#  clusterNameExpression: 'default'
-
-#turbine:
-#  aggregator:
-#    clusterConfig: CUSTOMERS
-#  appConfig: customers
 
 ---
 # For deployment in Docker containers
@@ -64,25 +56,3 @@ eureka:
     serviceUrl:
       defaultZone: http://discovery:8761/eureka/
 
----
-# For deployment in Cloud Foundry
-spring:
-  profiles: cloud
-
-server:
-  port: 0 # Avoid collisions in the unknown CF djungle...
-
-management:
-  port: 0 # Avoid collisions in the unknown CF djungle...
-
-turbine:
-  amqp:
-    port: 0 # Avoid collisions in the unknown CF djungle...
-
-eureka:
-  instance:
-    hostname: ${vcap.application.uris[0]:localhost}
-    nonSecurePort: 80
-  client:
-    serviceUrl:
-      defaultZone: http://ml-public-ds-1.cfapps.io/eureka/
