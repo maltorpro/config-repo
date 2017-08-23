@@ -65,6 +65,9 @@ spring:
 server:
   port: 8080
 
+logstash:
+ host: logstash:5000
+
 spring.rabbitmq.host: rabbitmq
 
 eureka:

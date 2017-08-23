@@ -89,6 +89,9 @@ spring:
 
 spring.rabbitmq.host: rabbitmq
 
+logstash:
+ host: logstash:5000
+
 security:
   oauth2:
     resource:

@@ -97,6 +97,9 @@ spring:
   profiles: docker
   
 spring.rabbitmq.host: rabbitmq  
+
+logstash:
+ host: logstash:5000
   
 eureka:
   instance:

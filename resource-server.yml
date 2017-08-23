@@ -38,6 +38,9 @@ spring:
 # For deployment in Docker containers
 spring:
   profiles: docker
+
+logstash:
+ host: logstash:5000
   
 spring.rabbitmq.host: rabbitmq
 
