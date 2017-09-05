@@ -54,17 +54,6 @@ eureka:
     hostname: monitor
   client:
     serviceUrl:
-      defaultZone: http://discovery:8761/eureka/
+      defaultZone: http://discovery-server:8761/eureka/
 
----
-# For deployment in Cloud Foundry
-spring:
-  profiles: cloud
 
-eureka:
-  instance:
-    hostname: ${vcap.application.uris[0]:localhost}
-    nonSecurePort: 80
-  client:
-    serviceUrl:
-      defaultZone: http://ml-public-ds-1.cfapps.io/eureka/

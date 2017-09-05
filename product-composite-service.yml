@@ -117,9 +117,14 @@ logstash:
 
 spring.rabbitmq.host: rabbitmq
 
+security:
+  oauth2:
+    resource:
+      userInfoUri: http://resource-server:9090/user
+
 eureka:
   instance:
     preferIpAddress: true
   client:
     serviceUrl:
-      defaultZone: http://discovery:8761/eureka/
+      defaultZone: http://discovery-server:8761/eureka/
