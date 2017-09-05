@@ -95,12 +95,12 @@ logstash:
 security:
   oauth2:
     resource:
-      userInfoUri: http://auth:9999/user
+      userInfoUri: http://resource-server:9090/user
 
 eureka:
   instance:
     preferIpAddress: true
   client:
     serviceUrl:
-      defaultZone: http://discovery:8761/eureka/
+      defaultZone: http://discovery-server:8761/eureka/
 
