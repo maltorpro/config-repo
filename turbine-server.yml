@@ -5,15 +5,8 @@ management:
   port: 8990
 
 info:
-  component: Turbine
+  component: Turbine Server
 
-PREFIX:
-  
-endpoints:
-  restart:
-    enabled: true
-  shutdown:
-    enabled: true
 
 logging:
   level:
