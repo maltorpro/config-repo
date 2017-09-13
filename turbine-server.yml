@@ -1,5 +1,4 @@
-server:
-  port: -1
+turbine.stream.port: 8989
 
 management:
   port: 8990
