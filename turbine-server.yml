@@ -1,5 +1,5 @@
 server:
-  port: 8989
+  port: -1
 
 management:
   port: 8990
@@ -44,7 +44,7 @@ spring.rabbitmq.host: rabbitmq
 
 eureka:
   instance:
-    hostname: turbine
+    preferIpAddress: true
   client:
     serviceUrl:
       defaultZone: http://discovery-server:8761/eureka/
