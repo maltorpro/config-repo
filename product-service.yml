@@ -42,6 +42,19 @@ spring:
   sleuth:
     sampler:
       percentage: 1.0
+  datasource:
+    platform: postgres
+    url: jdbc:postgresql://localhost:5432/shop-db
+    username: shop
+    password: shop
+    driverClassName: org.postgresql.Driver    
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create-drop
+
 
 
 ribbon:
@@ -71,6 +84,10 @@ eureka:
 # For deployment in Docker containers
 spring:
   profiles: docker
+  
+  jpa:
+    hibernate:
+      ddl-auto: none
 
 server:
   port: 8080
