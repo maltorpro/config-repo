@@ -1,13 +1,14 @@
 buildscript {
 	    ext {
-	        springBootVersion = "1.5.6.RELEASE"
-        	springCloudVersion = "Dalston.SR3"
+	        springBootVersion = "2.0.0.RELEASE"
 	    }
 	    repositories {
 	        mavenCentral()
+	        maven { url "https://repo.spring.io/snapshot" }
+			maven { url "https://repo.spring.io/milestone" }
 	    }
 	    dependencies {
-	        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	        classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
 	    }
 }
 
@@ -16,31 +17,37 @@ buildscript {
 	apply plugin: "eclipse"
 	apply plugin: "idea"
 	apply plugin: "org.springframework.boot"
+	apply plugin: "io.spring.dependency-management"
 	
 	sourceCompatibility = 1.8
 	targetCompatibility = 1.8
 	
 	repositories {
-	    mavenLocal()
-    	jcenter()
-    	mavenCentral()
-    	maven { url "https://repo.spring.io/milestone" }
+	   	mavenCentral()
+    		jcenter()
+    		maven { url "https://repo.spring.io/snapshot" }
+		maven { url "https://repo.spring.io/milestone" }
+	}
+	
+	ext {
+		springCloudVersion = 'Finchley.M6'
 	}
 	
 	dependencies {
 	
-	    compile("org.springframework.boot:spring-boot-starter-web") 
-    	compile("org.springframework.boot:spring-boot-starter-actuator")
-    	compile("org.springframework.cloud:spring-cloud-starter-sleuth")
-    	compile("org.springframework.cloud:spring-cloud-starter-config")
-    	compile("org.springframework.cloud:spring-cloud-starter-eureka")
-    	compile("org.springframework.cloud:spring-cloud-starter-oauth2")
-    	compile("org.springframework.cloud:spring-cloud-starter-security")
-		compile("org.springframework.cloud:spring-cloud-starter-zuul")
-		compile "org.springframework.cloud:spring-cloud-sleuth-zipkin-stream"
-    	compile "org.springframework.cloud:spring-cloud-starter-sleuth"
-	   
-	    testCompile("org.springframework.boot:spring-boot-starter-test")
+		compile("org.springframework.boot:spring-boot-starter-web") 
+    		compile("org.springframework.boot:spring-boot-starter-actuator")
+    		compile("org.springframework.cloud:spring-cloud-starter-config")
+    	
+    	   	compile ("org.springframework.cloud:spring-cloud-starter-sleuth")
+ 		compile ("org.springframework.cloud:spring-cloud-starter-stream-rabbit")
+    	
+    		compile("net.logstash.logback:logstash-logback-encoder:4.9")
+ 		compile("org.aspectj:aspectjweaver:1.8.10")
+		compile("org.springframework.boot:spring-boot-starter-aop")
+		
+	    	testCompile("org.springframework.boot:spring-boot-starter-test")
+	    
 	}
 	
 	dependencyManagement {
@@ -57,6 +64,5 @@ buildscript {
 	}
 
 	task wrapper(type: Wrapper) {
-		gradleVersion = "3.1"
+		gradleVersion = "4.3.1"
 	}
-
