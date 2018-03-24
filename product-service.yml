@@ -2,7 +2,12 @@ message: Hello world3
 
 
 server:
-  port: 0
+  port: 8443
+  ssl:
+    key-store: classpath:jwt.jks
+    key-store-password: Olitokivu657
+    key-password: Olitokivu657
+  http2.enable: true
 
 info:
   component: Product Service
