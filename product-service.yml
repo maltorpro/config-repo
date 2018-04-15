@@ -4,9 +4,9 @@ message: Hello world3
 server:
   port: 8443
   ssl:
-    key-store: classpath:jwt.jks
-    key-store-password: Olitokivu657
-    key-password: Olitokivu657
+    key-store: classpath:maltor.jks
+    key-store-password: 2cgxjGdY768PNsax
+    key-password: 2cgxjGdY768PNsax
   http2.enable: true
 
 info:
