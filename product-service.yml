@@ -5,8 +5,8 @@ server:
   port: 8443
   ssl:
     key-store: classpath:maltor.jks
-    key-store-password: 2cgxjGdY768PNsax
-    key-password: 2cgxjGdY768PNsax
+    key-store-password: c9xZpx
+    key-password: c9xZpx
   http2.enable: true
 
 info:
