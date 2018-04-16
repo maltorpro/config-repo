@@ -2,7 +2,7 @@ message: Hello world3
 
 
 server:
-  port: 8443
+  port: 0
   ssl:
     key-store: classpath:cert.p12
     key-store-password: c9xZpx
