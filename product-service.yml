@@ -4,7 +4,7 @@ message: Hello world3
 server:
   port: 8443
   ssl:
-    key-store: classpath:maltor.jks
+    key-store: classpath:cert.p12
     key-store-password: c9xZpx
     key-password: c9xZpx
   http2.enable: true
