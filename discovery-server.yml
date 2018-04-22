@@ -22,7 +22,7 @@ eureka:
     registerWithEureka: false
     fetchRegistry: false
     serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      defaultZone: https://${eureka.instance.hostname}:${server.port}/eureka/
   instance:
     hostname: localhost
   server:
@@ -67,7 +67,7 @@ eureka:
     registerWithEureka: true
     fetchRegistry: true
     serviceUrl:
-      defaultZone: http://user:${eureka.password}@127.0.0.1:8762/eureka/
+      defaultZone: https://user:${eureka.password}@127.0.0.1:8762/eureka/
 
 ---
 spring:
@@ -80,7 +80,7 @@ eureka:
     nonSecurePort: ${server.port}
   client:
     serviceUrl:
-      defaultZone: http://user:${eureka.password}@127.0.1.1:8761/eureka/
+      defaultZone: https://user:${eureka.password}@127.0.1.1:8761/eureka/
 
 ---
 spring:
@@ -92,7 +92,7 @@ eureka:
     registerWithEureka: true
     fetchRegistry: true
     serviceUrl:
-      defaultZone: http://user:${eureka.password}@${PREFIX:}eureka.cfapps.io/eureka/
+      defaultZone: https://user:${eureka.password}@${PREFIX:}eureka.cfapps.io/eureka/
 
 
 
@@ -113,7 +113,7 @@ eureka:
     registerWithEureka: true
     fetchRegistry: true
     serviceUrl:
-      defaultZone: http://user:${eureka.password}@discovery-server:8761/eureka/
+      defaultZone: https://user:${eureka.password}@discovery-server:8761/eureka/
 
 ---
 # Eureka instance 1 when used on Docker
@@ -129,7 +129,7 @@ eureka:
     registerWithEureka: true
     fetchRegistry: true
     serviceUrl:
-      defaultZone: http://user:${eureka.password}@discovery2-server:8762/eureka/
+      defaultZone: https://user:${eureka.password}@discovery2-server:8762/eureka/
 
 ---
 # Eureka instance 2 when used on Docker
@@ -146,4 +146,4 @@ eureka:
     nonSecurePort: ${server.port}
   client:
     serviceUrl:
-      defaultZone: http://user:${eureka.password}@discovery-server:8761/eureka/
+      defaultZone: https://user:${eureka.password}@discovery-server:8761/eureka/

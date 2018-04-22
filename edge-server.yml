@@ -14,7 +14,7 @@ logstash:
 security:
   oauth2:
     resource:
-      userInfoUri: http://localhost:9090/user
+      userInfoUri: https://localhost:9090/user
 
 hystrix:
   threadpool:
@@ -99,12 +99,12 @@ logstash:
 security:
   oauth2:
     resource:
-      userInfoUri: http://resource-server:9090/user
+      userInfoUri: https://resource-server:9090/user
 
 eureka:
   instance:
     preferIpAddress: true
   client:
     serviceUrl:
-      defaultZone: http://discovery-server:8761/eureka/
+      defaultZone: https://discovery-server:8761/eureka/
 

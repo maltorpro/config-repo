@@ -37,7 +37,7 @@ eureka:
     leaseRenewalIntervalInSeconds: 10
   client:
     serviceUrl:
-      defaultZone: ${vcap.services.${PREFIX:}eureka.credentials.uri:http://user:password@localhost:8761}/eureka/
+      defaultZone: ${vcap.services.${PREFIX:}eureka.credentials.uri:https://user:password@localhost:8761}/eureka/
 
 
 ---
@@ -52,5 +52,5 @@ eureka:
     preferIpAddress: true
   client:
     serviceUrl:
-      defaultZone: http://discovery-server:8761/eureka/
+      defaultZone: https://discovery-server:8761/eureka/
 
