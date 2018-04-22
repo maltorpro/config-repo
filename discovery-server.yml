@@ -1,5 +1,9 @@
 server:
   port: 8761
+  ssl:
+    key-store: classpath:cert.p12
+    key-store-password: c9xZpx
+  http2.enable: true   
   
 
 security:

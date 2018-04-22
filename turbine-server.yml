@@ -1,5 +1,11 @@
 turbine.stream.port: 8989
 
+server:
+  ssl:
+    key-store: classpath:cert.p12
+    key-store-password: c9xZpx
+  http2.enable: true
+
 management:
   port: 8990
 

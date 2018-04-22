@@ -1,9 +1,13 @@
 info:
-  component: Hystrix Dashboard
+  component: Hystrix Dashboard 
 
 
 server:
   port: 7979
+  ssl:
+    key-store: classpath:cert.p12
+    key-store-password: c9xZpx
+  http2.enable: true  
 
 logging:
   level:
