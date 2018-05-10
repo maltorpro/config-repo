@@ -12,12 +12,18 @@ server:
 logstash:
  host: 127.0.0.1:5000
 
+spring:
+  security:
+    user:
+      name: admin 
+      password: pwd 
+
 eureka:
   client:
     registerWithEureka: false
     fetchRegistry: false
     serviceUrl:
-      defaultZone: https://${eureka.instance.hostname}:${server.port}/eureka
+      defaultZone: https://admin:pwd@${eureka.instance.hostname}:${server.port}/eureka/
   instance:
     hostname: localhost
     preferIpAddress: false 
@@ -46,7 +52,6 @@ eureka:
     numberRegistrySyncRetries: 0
 
     response-cache-update-interval-ms: 1000
-  password: ${SECURITY_USER_PASSWORD:password}
 
 logging:
   level:
