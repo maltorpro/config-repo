@@ -6,7 +6,7 @@ server:
   ssl:
     key-store: classpath:cert.p12
     key-store-password: c9xZpx
-  #http2.enable: true   
+  http2.enable: true   
 
 
 logstash:
