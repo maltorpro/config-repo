@@ -23,6 +23,8 @@ spring:
       password: pwd
 
 eureka:
+  instance:
+    hostname: localhost
   client:
     serviceUrl:
       defaultZone: https://admin:pwd@localhost:8761/eureka/
