@@ -24,9 +24,12 @@ eureka:
     nonSecurePortEnabled: false
     securePortEnabled: true
     securePort: ${server.port}
-    statusPageUrl: https://${eureka.instance.hostname}:${eureka.instance.securePort}/info
-    healthCheckUrl: https://${eureka.instance.hostname}:${eureka.instance.securePort}/health
-    homePageUrl: https://${eureka.instance.hostname}:${eureka.instance.securePort}/
+    secureVirtualHostName: ${spring.application.name}
+    homePageUrl: https://${eureka.instance.hostname}:${server.port}/
+    statusPageUrl: https://${eureka.instance.hostname}:${server.port}/admin/info
+    metadataMap:
+      hostname : ${eureka.instance.hostname}
+      securePort: ${server.port} 
     
   server:
     # Disable self-preservation during development, see https://github.com/Netflix/eureka/wiki/Understanding-Eureka-Peer-to-Peer-Communication
