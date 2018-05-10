@@ -1,23 +1,18 @@
+info:
+  component: Discovery Server
+
 server:
   port: 8761
   ssl:
     key-store: classpath:cert.p12
     key-store-password: c9xZpx
   http2.enable: true   
-  
 
-security:
-  user:
-    password: ${eureka.password} # Don't use a default password in a real app
-
-info:
-  component: Discovery Server
 
 logstash:
  host: 127.0.0.1:5000
 
 eureka:
-  # Configure standalone mode, see http://cloud.spring.io/spring-cloud-netflix/spring-cloud-netflix.html#_standalone_mode
   client:
     registerWithEureka: false
     fetchRegistry: false
@@ -25,11 +20,13 @@ eureka:
       defaultZone: https://${eureka.instance.hostname}:${server.port}/eureka/
   instance:
     hostname: localhost
+    preferIpAddress: false 
     nonSecurePortEnabled: false
     securePortEnabled: true
-    statusPageUrl: https://${eureka.instance.hostname}:${eureka.instance.securePort}/info
-    healthCheckUrl: https://${eureka.instance.hostname}:${eureka.instance.securePort}/health
-    homePageUrl: https://${eureka.instance.hostname}:${eureka.instance.securePort}/
+    securePort: ${server.port}
+    #statusPageUrl: https://${eureka.instance.hostname}:${server.port}/info
+    #healthCheckUrl: https://${eureka.instance.hostname}:${server.port}/health
+    #homePageUrl: https://${eureka.instance.hostname}:${server.port}/
     
   server:
     # Disable self-preservation during development, see https://github.com/Netflix/eureka/wiki/Understanding-Eureka-Peer-to-Peer-Communication
