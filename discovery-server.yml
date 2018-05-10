@@ -6,7 +6,7 @@ server:
   ssl:
     key-store: classpath:cert.p12
     key-store-password: c9xZpx
-  http2.enable: true   
+  #http2.enable: true   
 
 
 logstash:
@@ -17,16 +17,16 @@ eureka:
     registerWithEureka: false
     fetchRegistry: false
     serviceUrl:
-      defaultZone: https://${eureka.instance.hostname}:${server.port}/eureka/
+      defaultZone: https://${eureka.instance.hostname}:${server.port}/eureka
   instance:
     hostname: localhost
     preferIpAddress: false 
     nonSecurePortEnabled: false
     securePortEnabled: true
     securePort: ${server.port}
-    #statusPageUrl: https://${eureka.instance.hostname}:${server.port}/info
-    #healthCheckUrl: https://${eureka.instance.hostname}:${server.port}/health
-    #homePageUrl: https://${eureka.instance.hostname}:${server.port}/
+    statusPageUrl: https://${eureka.instance.hostname}:${eureka.instance,securePort}/info
+    healthCheckUrl: https://${eureka.instance.hostname}:${eureka.instance.securePort}/health
+    homePageUrl: https://${eureka.instance.hostname}:${eureka.instance.securePort}/
     
   server:
     # Disable self-preservation during development, see https://github.com/Netflix/eureka/wiki/Understanding-Eureka-Peer-to-Peer-Communication
