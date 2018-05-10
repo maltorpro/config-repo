@@ -27,7 +27,7 @@ eureka:
     hostname: localhost
     nonSecurePortEnabled: false
     securePortEnabled: true
-    statusPageUrl: https://${eureka.instance.h}:${eureka.instance.securePort}/info
+    statusPageUrl: https://${eureka.instance.hostname}:${eureka.instance.securePort}/info
     healthCheckUrl: https://${eureka.instance.hostname}:${eureka.instance.securePort}/health
     homePageUrl: https://${eureka.instance.hostname}:${eureka.instance.securePort}/
     
