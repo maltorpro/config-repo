@@ -21,12 +21,13 @@ eureka:
   instance:
     hostname: localhost
     preferIpAddress: false 
-    nonSecurePortEnabled: false
+    nonSecurePortEnabled: true
     securePortEnabled: true
     securePort: ${server.port}
     secureVirtualHostName: ${spring.application.name}
     homePageUrl: https://${eureka.instance.hostname}:${server.port}/
-    statusPageUrl: https://${eureka.instance.hostname}:${server.port}/admin/info
+    healthCheckUrl: https://${eureka.instance.hostname}:${server.port}/health
+    statusPageUrl: https://${eureka.instance.hostname}:${server.port}/info
     metadataMap:
       hostname : ${eureka.instance.hostname}
       securePort: ${server.port} 
