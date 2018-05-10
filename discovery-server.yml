@@ -1,6 +1,5 @@
 server:
-  #port: 8761
-  port: 443
+  port: 8761
   ssl:
     key-store: classpath:cert.p12
     key-store-password: c9xZpx
@@ -28,9 +27,9 @@ eureka:
     hostname: localhost
     nonSecurePortEnabled: false
     securePortEnabled: true
-    statusPageUrl: https://${eureka.instance.hostname}:${server.port}/info
-    healthCheckUrl: https://${eureka.instance.hostname}:${server.port}/health
-    homePageUrl: https://${eureka.instance.hostname}:${server.port}/
+    statusPageUrl: https://${eureka.instance.h}:${eureka.instance.securePort}/info
+    healthCheckUrl: https://${eureka.instance.hostname}:${eureka.instance.securePort}/health
+    homePageUrl: https://${eureka.instance.hostname}:${eureka.instance.securePort}/
     
   server:
     # Disable self-preservation during development, see https://github.com/Netflix/eureka/wiki/Understanding-Eureka-Peer-to-Peer-Communication
