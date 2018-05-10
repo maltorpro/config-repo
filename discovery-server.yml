@@ -27,9 +27,9 @@ eureka:
     hostname: localhost
     nonSecurePortEnabled: false
     securePortEnabled: true
-    statusPageUrl: https://${eureka.instance.hostName}:${server.port}/info
-    healthCheckUrl: https://${eureka.instance.hostName}:${server.port}/health
-    homePageUrl: https://${eureka.instance.hostName}:${server.port}/
+    statusPageUrl: https://${eureka.instance.hostname}:${server.port}/info
+    healthCheckUrl: https://${eureka.instance.hostname}:${server.port}/health
+    homePageUrl: https://${eureka.instance.hostname}:${server.port}/
     
   server:
     # Disable self-preservation during development, see https://github.com/Netflix/eureka/wiki/Understanding-Eureka-Peer-to-Peer-Communication
@@ -116,9 +116,9 @@ eureka:
   instance:
     hostname: discovery
     securePortEnabled: true
-    statusPageUrl: https://${eureka.instance.hostName}:${server.port}/info
-    healthCheckUrl: https://${eureka.instance.hostName}:${server.port}/health
-    homePageUrl: https://${eureka.instance.hostName}:${server.port}/
+    statusPageUrl: https://${eureka.instance.hostname}:${server.port}/info
+    healthCheckUrl: https://${eureka.instance.hostname}:${server.port}/health
+    homePageUrl: https://${eureka.instance.hostname}:${server.port}/
   client:
     registerWithEureka: true
     fetchRegistry: true
