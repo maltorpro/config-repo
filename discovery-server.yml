@@ -1,5 +1,6 @@
 server:
-  port: 8761
+  #port: 8761
+  port: 443
   ssl:
     key-store: classpath:cert.p12
     key-store-password: c9xZpx
