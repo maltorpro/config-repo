@@ -12,6 +12,9 @@ management:
 info:
   component: Turbine Server
 
+spring.rabbitmq:
+  host: localhost
+  port: 5672
 
 logging:
   level:
@@ -27,18 +30,6 @@ logging:
     # Set INFO to see the allocated port
     org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer: INFO
     org.springframework.boot.context.embedded.undertow.UndertowEmbeddedServletContainer: INFO
-
-spring.rabbitmq:
-  host: localhost
-  port: 5672
-
-eureka:
-  instance:
-    leaseRenewalIntervalInSeconds: 10
-  client:
-    serviceUrl:
-      defaultZone: ${vcap.services.${PREFIX:}eureka.credentials.uri:https://user:password@localhost:8761}/eureka/
-
 
 ---
 # For deployment in Docker containers
