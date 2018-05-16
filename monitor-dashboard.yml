@@ -24,3 +24,10 @@ logging:
 # For deployment in Docker containers
 spring:
   profiles: docker
+
+eureka:
+  instance:
+    hostname: monitor
+  client:
+    serviceUrl:
+      defaultZone: https://discovery-server:8761/eureka/
