@@ -51,17 +51,3 @@ spring.rabbitmq.host: rabbitmq
 logstash:
  host: logstash:5000
   
-eureka:
-  instance:
-    hostname: discovery
-    securePortEnabled: true
-    statusPageUrl: https://${eureka.instance.hostname}:${server.port}/info
-    healthCheckUrl: https://${eureka.instance.hostname}:${server.port}/health
-    homePageUrl: https://${eureka.instance.hostname}:${server.port}/
-  client:
-    registerWithEureka: true
-    fetchRegistry: true
-    serviceUrl:
-      #defaultZone: https://user:${eureka.password}@discovery-server:${server.port}/eureka/
-      defaultZone: https://${eureka.instance.hostname}:${server.port}/eureka/
-
