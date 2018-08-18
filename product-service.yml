@@ -65,9 +65,9 @@ logging:
 spring:
   profiles: docker
   
-  jpa:
-    hibernate:
-      ddl-auto: none
+  datasource:
+    url: jdbc:postgresql://shop-db:5432/shop-db
+
 
 server:
   port: 8080

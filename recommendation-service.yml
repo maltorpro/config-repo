@@ -61,6 +61,9 @@ logging:
 spring:
   profiles: docker
 
+  datasource:
+    url: jdbc:postgresql://shop-db:5432/shop-db
+
 server:
   port: 8080
 
