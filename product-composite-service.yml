@@ -1,6 +1,7 @@
 server:
   port: 0
   ssl:
+    discovery-client-key-store: src/main/resources/cert.p12
     key-store: classpath:cert.p12
     key-store-password: c9xZpx
   http2.enable: true
