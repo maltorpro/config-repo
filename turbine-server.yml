@@ -1,6 +1,7 @@
-turbine.stream.port: 8989
+#turbine.stream.port: 8989
 
 server:
+  port: 8989
   ssl:
     key-store: classpath:cert.p12
     key-store-password: c9xZpx
