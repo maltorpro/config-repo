@@ -1,16 +1,55 @@
 server:
   port: 0
+  ssl:
+    discovery-client-key-store: src/main/resources/cert.p12
+    key-store: classpath:cert.p12
+    key-store-password: c9xZpx
+  http2.enable: true
 
 info:
   component: Product Composite Service
 
 logstash:
  host: 127.0.0.1:5000
+ 
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: https://localhost:8761/eureka/
 
 security:
   oauth2:
     resource:
-      userInfoUri: http://localhost:9090/user
+      userInfoUri: https://localhost:9090/user
+
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+  sleuth:
+    sampler:
+      percentage: 1.0
+   
+hystrix:
+  threadpool:
+    default:
+      # Maximum number of concurrent requests when using thread pools (Default: 10)
+      coreSize: 100
+      # Maximum LinkedBlockingQueue size - -1 for using SynchronousQueue (Default: -1)
+      maxQueueSize: -1
+      # Queue size rejection threshold (Default: 5)
+      queueSizeRejectionThreshold: 5
+  command:
+    default:
+      circuitBreaker:
+        sleepWindowInMilliseconds: 30000
+        requestVolumeThreshold: 3
+      execution:
+        isolation:
+          #strategy: SEMAPHORE, no thread pool but timeout handling stops to work
+          strategy: THREAD
+          thread:
+            timeoutInMilliseconds: 4000
 
 logging:
   level:
@@ -33,76 +72,6 @@ logging:
     de.maltorpro: INFO
 
 
-
-spring:
-  rabbitmq:
-    host: localhost
-    port: 5672
-  sleuth:
-    sampler:
-      percentage: 1.0
-   
-
-hystrix:
-  threadpool:
-    default:
-      # Maximum number of concurrent requests when using thread pools (Default: 10)
-      coreSize: 100
-      # Maximum LinkedBlockingQueue size - -1 for using SynchronousQueue (Default: -1)
-      maxQueueSize: -1
-      # Queue size rejection threshold (Default: 5)
-      queueSizeRejectionThreshold: 5
-  command:
-    default:
-      circuitBreaker:
-        sleepWindowInMilliseconds: 30000
-        requestVolumeThreshold: 3
-      execution:
-        isolation:
-#          strategy: SEMAPHORE, no thread pool but timeout handling stops to work
-          strategy: THREAD
-          thread:
-            timeoutInMilliseconds: 4000
-
-
-
-ribbon:
-  # Interval to refresh the server list from the source
-  serverListRefreshInterval: 1000
-#
-#  # Connect timeout used by Apache HttpClient
-#  connectTimeout: 100
-#
-#  # Read timeout used by Apache HttpClient
-#  readTimeout: 10000
-#
-#  ConnectTimeout: 100
-#  ReadTimeout: 3000
-
-eureka:
-  instance:
-    leaseRenewalIntervalInSeconds: 1
-    leaseExpirationDurationInSeconds: 1
-    metadataMap:
-      instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${random.value}}}
-  client:
-    # Default values comes from org.springframework.cloud.netflix.eurek.EurekaClientConfigBean
-    registryFetchIntervalSeconds: 1
-    instanceInfoReplicationIntervalSeconds: 1
-    initialInstanceInfoReplicationIntervalSeconds: 1
-
-app:
-  ConnectTimeout: 100
-  ReadTimeout: 3000
-
-#    region: default
-#    availabilityZones:
-#      default: ${APPLICATION_DOMAIN:${DOMAIN:defaultZone}}
-
-#stores:
-#  ribbon:
-#    ServerListRefreshInterval: 1000
-
 ---
 # For deployment in Docker containers
 spring:
@@ -120,11 +89,11 @@ spring.rabbitmq.host: rabbitmq
 security:
   oauth2:
     resource:
-      userInfoUri: http://resource-server:9090/user
+      userInfoUri: https://resource-server:9090/user
 
 eureka:
   instance:
     preferIpAddress: true
   client:
     serviceUrl:
-      defaultZone: http://discovery-server:8761/eureka/
+      defaultZone: https://discovery-server:8761/eureka/

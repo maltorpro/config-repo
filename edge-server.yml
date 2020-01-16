@@ -1,16 +1,25 @@
 server:
   port: 8765
+  ssl:
+    key-store: classpath:cert.p12
+    key-store-password: c9xZpx
+  http2.enable: true  
 
 info:
   component: Edge Server
 
 logstash:
  host: 127.0.0.1:5000
+ 
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: https://localhost:8761/eureka/ 
 
 security:
   oauth2:
     resource:
-      userInfoUri: http://localhost:9090/user
+      userInfoUri: https://localhost:9090/user
 
 hystrix:
   threadpool:
@@ -28,21 +37,12 @@ hystrix:
         requestVolumeThreshold: 20
       execution:
         isolation:
-#          strategy: SEMAPHORE, no thread pool but timeout handling stops to work
+          #strategy: SEMAPHORE, no thread pool but timeout handling stops to work
           strategy: THREAD
           thread:
             timeoutInMilliseconds: 10000
 
-eureka:
-  instance:
-    leaseRenewalIntervalInSeconds: 3
-    metadataMap:
-      instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${random.value}}}
-  client:
-    # Default values comes from org.springframework.cloud.netflix.eurek.EurekaClientConfigBean
-    registryFetchIntervalSeconds: 5
-    instanceInfoReplicationIntervalSeconds: 5
-    initialInstanceInfoReplicationIntervalSeconds: 5
+
 
 endpoints:
   restart:
@@ -95,12 +95,5 @@ logstash:
 security:
   oauth2:
     resource:
-      userInfoUri: http://resource-server:9090/user
-
-eureka:
-  instance:
-    preferIpAddress: true
-  client:
-    serviceUrl:
-      defaultZone: http://discovery-server:8761/eureka/
+      userInfoUri: https://resource-server:9090/user
 

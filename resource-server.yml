@@ -1,11 +1,23 @@
 server:
   port: 9090
+  ssl:
+    key-store: classpath:cert.p12
+    key-store-password: c9xZpx
+  http2.enable: true  
   
 info:
   component: Resource Server
 
 logstash:
  host: 127.0.0.1:5000
+
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+  sleuth:
+    sampler:
+      percentage: 0.2
 
 logging:
   level:
@@ -25,14 +37,6 @@ logging:
     org.springframework.boot.context.embedded.undertow.UndertowEmbeddedServletContainer: INFO
 
     de.maltorpro: INFO
-
-spring:
-  rabbitmq:
-    host: localhost
-    port: 5672
-  sleuth:
-    sampler:
-      percentage: 0.2
 
 ---
 # For deployment in Docker containers
