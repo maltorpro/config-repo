@@ -93,6 +93,13 @@ spring.rabbitmq.host: rabbitmq
 logstash:
  host: logstash:5000
 
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    serviceUrl:
+      defaultZone: https://discovery-server:8761/eureka/
+
 security:
   oauth2:
     resource:
