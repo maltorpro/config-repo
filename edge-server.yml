@@ -1,15 +1,21 @@
 server:
   port: 8765
   ssl:
+    discovery-client-key-store: src/main/resources/cert.p12
     key-store: classpath:cert.p12
     key-store-password: c9xZpx
-  http2.enable: true  
+  http2.enable: true
 
 info:
   component: Edge Server
 
 logstash:
  host: 127.0.0.1:5000
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: https://localhost:8761/eureka/
 
 security:
   oauth2:
@@ -69,7 +75,7 @@ logging:
     # Set DEBUG level on Hystrix to get an error message when a fallback method is used.
     com.netflix.hystrix: DEBUG
     com.netflix.hystrix.strategy.properties.HystrixPropertiesChainedArchaiusProperty: WARN
-    
+
 spring:
   rabbitmq:
     host: localhost
@@ -86,6 +92,13 @@ spring.rabbitmq.host: rabbitmq
 
 logstash:
  host: logstash:5000
+
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    serviceUrl:
+      defaultZone: https://discovery-server:8761/eureka/
 
 security:
   oauth2:
