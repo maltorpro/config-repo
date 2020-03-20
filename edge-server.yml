@@ -54,6 +54,7 @@ endpoints:
     sensitive: false
 
 zuul:
+  sslHostnameValidationEnabled: false
   ignoredServices: "*"
   prefix: /api
   routes:
